@@ -1,0 +1,59 @@
+body {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background-color: hsl(48, 18%, 83%);
+}
+
+.examples {
+  padding: 3rem;
+  max-width: 1200px;
+  display: flex;
+  gap: clamp(2rem, 8vw, 4rem);
+}
+
+button {
+  background: transparent;
+  border: 10px solid var(--button-color, black);
+  border-radius: 2rem;
+}
+
+.button-one {
+  --button-color: #555;
+}
+
+/* transform-origin is the axis or point on which the transition will take place, in this case the center when the lines rotate. */
+
+.button-one .line {
+  transition: y 300ms ease-in 300ms, rotate 300ms ease-in, opacity 0ms 300ms;
+  transform-origin: center;
+}
+
+.button-one:hover .line {
+  transition: y 100ms ease-in, rotate 200ms ease-in 100ms, opacity 0ms 100ms;
+}
+/* mover the top and bottom line to the center by setting the y value the same to the center line button*/
+.button-one:hover :is(.top, .bottom) {
+  y: 45;
+}
+
+/* mover the top and bottom line to the center by setting the y value the same to the center line button*/
+.button-one:hover :is(.top, .bottom) {
+  y: 45;
+}
+
+.button-one:hover .top {
+  rotate: 135deg;
+}
+
+.button-one:hover .middle {
+  opacity: 0;
+}
+
+.button-one:hover .bottom {
+  rotate: -135deg;
+}
+
+.button-one[aria-expanded="true"] .top {
+  color: red;
+}
